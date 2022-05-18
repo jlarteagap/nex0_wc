@@ -1,3 +1,54 @@
 .footer{
+    background: transparent;
+    &__section{
 
+        @include tablet-portrait{
+            flex-direction: row !important;
+        }
+    }
+
+    &__copy{
+        order: 4;
+        @include tablet-portrait{
+            display: flex;
+            justify-content: center;
+        }
+        @include desktop{
+            order: 0;
+            justify-content: flex-start !important;
+        }
+        p{
+            @include desktop{
+                align-items: flex-start !important;
+            }
+        }
+    }
+    &__about{
+        order: 0;
+        @include desktop{
+            order: 2;
+        }
+    }
+    &__services {
+        order: 1;
+        @include desktop{
+            order: 1;
+        }
+    }
+    &__contact{
+        order: 2;
+        @include desktop{
+            order: 3;
+        }
+    }
+    &__social{
+        order: 3;
+        @include tablet-portrait{
+            display: flex;
+            justify-content: center;
+        }
+        @include desktop{
+            order: 4;
+        }
+    }
 }
