@@ -21,6 +21,7 @@ module.exports = {
         arrowParens: 'avoid',
         semi: false
       }
-    ]
+    ],
+    'react/prop-types': 0
   }
 }

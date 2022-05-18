@@ -1,7 +1,12 @@
 import React from 'react'
+import { Footer } from './components'
 
 function App() {
-  return <div className="App">Learn React</div>
+  return (
+    <div className="App">
+      <Footer />
+    </div>
+  )
 }
 
 export default App

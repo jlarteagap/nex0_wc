@@ -1,0 +1,10 @@
+:root{
+    --orange: #ff7922
+}
+
+body{
+    background: var(--orange);
+}
+
+@import 'components/footer/footer';
+@import 'components/utils/social';

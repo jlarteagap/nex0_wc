@@ -5,6 +5,7 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 
 import 'bulma/css/bulma.min.css'
+import './style.scss'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
