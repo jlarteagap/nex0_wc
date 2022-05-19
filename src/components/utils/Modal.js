@@ -6,7 +6,7 @@ export const Modal = ({ modal, toggleModal }) => {
     <div className={`modal ${modal && 'is-active'}`}>
       <div className="modal-background"></div>
       <div className="modal-card">
-        <header className="modal__card modal-card-head">
+        <header className="modal__card-header modal-card-head">
           <p className="modal-card-title has-text-centered has-text-weight-bold">
             Contactános
           </p>

@@ -95,7 +95,7 @@ export const FormContact = ({ toggleModal }) => {
                 >
                   Cancelar
                 </button>
-                <button type="submit" className="button is-success">
+                <button type="submit" className="button nexo__btn">
                   Enviar mensaje
                 </button>
               </div>

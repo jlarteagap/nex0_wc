@@ -21,16 +21,37 @@
 @import 'components/footer/footer';
 @import 'components/utils/social';
 
+
 .nexo__btn{
   background: var(--orange);
   border-radius: 50px;
-  color: white;
-  border: 2px solid;
   transition: all .3s;
-
+  color: white;
   &:hover{
     background: white;
     color: var(--orange);
-    border: 2px solid white;
+    border: 2px solid var(--orange);
+  }
+  
+  &-contact{
+    color: white;
+    border: 2px solid;
+
+    &:hover{
+      background: white;
+      color: var(--orange);
+      border: 2px solid white;
+    }
+  }
+}
+
+
+.modal__card{
+  &-header{
+    background: var(--orange);
+    
+    & p{
+      color: white;
+    }
   }
 }

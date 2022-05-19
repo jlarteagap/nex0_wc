@@ -18,7 +18,7 @@ function Contact() {
           <div className="contact__wrapper-btn mt-5">
             <button
               onClick={toggleModal}
-              className="button nexo__btn is-size-1 is-size-3-tablet is-size-5-mobile"
+              className="button nexo__btn nexo__btn-contact is-size-1 is-size-3-tablet is-size-5-mobile"
             >
               Contactanos
             </button>
