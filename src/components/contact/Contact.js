@@ -1,6 +1,11 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { Modal } from '../utils/Modal'
 function Contact() {
+  const [modal, setModal] = useState(false)
+
+  const toggleModal = () => {
+    setModal(!modal)
+  }
   return (
     <section className="contact">
       <div className="container is-flex is-justify-content-center">
@@ -11,12 +16,16 @@ function Contact() {
             de Tecnologia!
           </h4>
           <div className="contact__wrapper-btn mt-5">
-            <button className="button nexo__btn is-size-1 is-size-3-tablet is-size-5-mobile">
+            <button
+              onClick={toggleModal}
+              className="button nexo__btn is-size-1 is-size-3-tablet is-size-5-mobile"
+            >
               Contactanos
             </button>
           </div>
         </div>
       </div>
+      <Modal modal={modal} toggleModal={toggleModal} />
     </section>
   )
 }
