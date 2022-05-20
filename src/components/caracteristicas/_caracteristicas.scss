@@ -1,0 +1,35 @@
+.caracteristicas{
+    padding: 6rem 1rem 0;
+    box-sizing: border-box;
+    min-height: 80vh;
+
+    &__header{
+        max-width: 70%;
+        &-sub{
+            color: var(--gray);
+        }
+        &-title{
+            color: #000;
+        }
+        @include tablet-landscape{
+            max-width: 50%;
+        }
+    }
+
+    &__content{
+        color: var(--text);
+        @include tablet-landscape{
+            max-width: 50%;
+        }
+    }
+    &__banner{
+        margin: 0 -1.25rem -1rem;
+        background-color: red;
+
+        & img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}

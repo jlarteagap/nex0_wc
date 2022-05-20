@@ -15,7 +15,7 @@ export const Social = ({ size }) => {
   return (
     <div className="social is-flex">
       {empresa.facebook && (
-        <a href="#">
+        <a href={empresa.facebook}>
           <div className="social-item is-flex is-justify-content-center is-align-items-center">
             <FaFacebookF size={size} className="social-icon" />
           </div>

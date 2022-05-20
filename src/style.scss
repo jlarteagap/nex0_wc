@@ -1,5 +1,7 @@
 :root{
-    --orange: #ff7922
+    --orange: #ff7922;
+    --gray: #e6e6e6;
+    --text: #888888;
 }
 @mixin phone {
   @media (max-width: 599px) { @content; }
@@ -16,7 +18,7 @@
 @mixin big-desktop {
   @media (min-width: 1800px) { @content; }
 }
-
+@import 'components/caracteristicas/caracteristicas';
 @import 'components/contact/contact';
 @import 'components/footer/footer';
 @import 'components/utils/social';

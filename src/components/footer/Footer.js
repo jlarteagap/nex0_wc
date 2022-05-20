@@ -8,7 +8,7 @@ const Footer = () => {
   const date = new Date()
   return (
     <footer className="footer">
-      <img src={empresa.logo} alto={empresa.nombre} />
+      <img src={empresa.logo} alt={empresa.nombre} />
       <div className="footer__section columns is-multiline is-flex is-flex-direction-column">
         <div className="footer__copy column is-4-desktop is-12-tablet is-flex is-justify-content-center">
           <p className="is-flex is-align-items-center">

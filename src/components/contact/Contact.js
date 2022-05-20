@@ -7,7 +7,7 @@ function Contact() {
     setModal(!modal)
   }
   return (
-    <section className="contact">
+    <section className="contact is-flex is-justify-content-center is-align-items-center">
       <div className="container is-flex is-justify-content-center">
         <div className="contact__wrapper has-text-centered">
           <h5 className="contact__wrapper-write">Escríbenos</h5>
