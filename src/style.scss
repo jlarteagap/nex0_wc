@@ -18,11 +18,6 @@
 @mixin big-desktop {
   @media (min-width: 1800px) { @content; }
 }
-@import 'components/caracteristicas/caracteristicas';
-@import 'components/contact/contact';
-@import 'components/footer/footer';
-@import 'components/utils/social';
-
 
 .nexo__btn{
   background: var(--orange);
@@ -57,3 +52,9 @@
     }
   }
 }
+
+@import'components/header/header';
+@import 'components/caracteristicas/caracteristicas';
+@import 'components/contact/contact';
+@import 'components/footer/footer';
+@import 'components/utils/social';

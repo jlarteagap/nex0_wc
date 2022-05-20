@@ -2,7 +2,7 @@ import React from 'react'
 import banner from '../../assets/caracteristicas.jpg'
 function Caracteristicas() {
   return (
-    <section className="caracteristicas">
+    <section className="caracteristicas" id="caracteristicas">
       <div className="container pb-5 mb-5 is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
         <div className="caracteristicas__header has-text-centered mb-5">
           <div className="caracteristicas__header-sub has-text-weight-bold is-size-3">
@@ -23,6 +23,7 @@ function Caracteristicas() {
       </div>
       <div className="caracteristicas__banner">
         <img
+          loading="lazy"
           src={banner}
           alt="Caracteristicas"
           className="caracteristicas__banner-img"

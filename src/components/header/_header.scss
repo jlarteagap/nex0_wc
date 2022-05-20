@@ -1,0 +1,22 @@
+.header{
+    
+    &__menu{
+        &-item{
+            &:hover{
+                background: transparent !important;
+                color: var(--orange) !important;
+            }
+        }
+        &-burger{
+            background: var(--orange) !important;
+            color: white;
+            transition: all .3s;
+
+            &:hover{
+                color: var(--orange);
+                background: white !important;
+                border: 1px solid var(--orange);
+            }
+        }
+    }
+}
