@@ -1,8 +1,44 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState, useRef } from 'react'
 import banner from '../../assets/caracteristicas.jpg'
+
+import useData from '../../hooks/useData'
+
 function Caracteristicas() {
+  const { menuObserver } = useData()
+
+  const [featuresVisible, setFeaturesVisible] = useState('')
+  const [entryObserver, setEntryObserver] = useState(false)
+
+  const featuresRef = useRef()
+
+  const [features, setFeatures] = useState([])
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0]
+        setEntryObserver(entry.isIntersecting)
+        if (entryObserver) {
+          setFeaturesVisible('#caracteristicas')
+        }
+      },
+      {
+        rootMargin: '0px 0px 0px',
+        root: null,
+        threshold: 0.5
+      }
+    )
+    observer.observe(featuresRef.current)
+  }, [entryObserver])
+
+  useEffect(() => {
+    if (entryObserver) {
+      menuObserver(featuresVisible)
+    }
+  }, [entryObserver, featuresVisible])
+
   return (
-    <section className="caracteristicas" id="caracteristicas">
+    <section className="caracteristicas" id="caracteristicas" ref={featuresRef}>
       <div className="container pb-5 mb-5 is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
         <div className="caracteristicas__header has-text-centered mb-5">
           <div className="caracteristicas__header-sub has-text-weight-bold is-size-3">

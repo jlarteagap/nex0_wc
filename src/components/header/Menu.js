@@ -2,7 +2,7 @@ import React from 'react'
 import useData from '../../hooks/useData'
 
 export const Menu = ({ isActive, onClick }) => {
-  const { menuActive, downloadContext, modulesContext } = useData()
+  const { menuActive } = useData()
 
   return (
     <div className={`header__menu navbar-menu ${isActive && 'is-active'}`}>
@@ -17,28 +17,26 @@ export const Menu = ({ isActive, onClick }) => {
           Home
         </a>
 
-        {downloadContext && (
-          <a
-            onClick={onClick}
-            className={`header__menu-item navbar-item has-text-weight-bold ${
-              menuActive === '#caracteristicas' && 'isActive'
-            }`}
-            href="#caracteristicas"
-          >
-            Descarga App
-          </a>
-        )}
-        {modulesContext && (
-          <a
-            onClick={onClick}
-            className={`header__menu-item navbar-item has-text-weight-bold ${
-              menuActive === '#modulos' && 'isActive'
-            }`}
-            href="#modulos"
-          >
-            Módulos
-          </a>
-        )}
+        <a
+          onClick={onClick}
+          className={`header__menu-item navbar-item has-text-weight-bold ${
+            menuActive === '#caracteristicas' && 'isActive'
+          }`}
+          href="#caracteristicas"
+        >
+          Características
+        </a>
+
+        <a
+          onClick={onClick}
+          className={`header__menu-item navbar-item has-text-weight-bold ${
+            menuActive === '#modulos' && 'isActive'
+          }`}
+          href="#modulos"
+        >
+          Módulos
+        </a>
+
         <a
           onClick={onClick}
           className={`header__menu-item navbar-item has-text-weight-bold ${

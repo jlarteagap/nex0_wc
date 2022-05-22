@@ -1,13 +1,47 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Modal } from '../utils/Modal'
+import useData from '../../hooks/useData'
+
 function Contact() {
+  const { menuObserver } = useData()
+
   const [modal, setModal] = useState(false)
+  const [contactVisible, setContactVisible] = useState('')
+  const [entryObserver, setEntryObserver] = useState(false)
+
+  const contactRef = useRef()
 
   const toggleModal = () => {
     setModal(!modal)
   }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0]
+        setEntryObserver(entry.isIntersecting)
+        if (entryObserver) {
+          setContactVisible('#contacto')
+        }
+      },
+      {
+        rootMargin: '0px 0px 0px',
+        root: null,
+        threshold: 0.5
+      }
+    )
+    observer.observe(contactRef.current)
+  }, [entryObserver])
+
+  useEffect(() => {
+    if (entryObserver) {
+      menuObserver(contactVisible)
+    }
+  }, [entryObserver, contactVisible])
+
   return (
     <section
+      ref={contactRef}
       id="contacto"
       className="contact is-flex is-justify-content-center is-align-items-center"
     >

@@ -8,6 +8,19 @@ export const AppContext = createContext({
 
 export function AppProvider({ children }) {
   const [empresa, setEmpresa] = useState([])
+  const [menuActive, setMenuActive] = useState('#')
+  const [featuresContext, setFeaturesContext] = useState(false)
+  const [modulesContext, setModulesContext] = useState(false)
+
+  const menuObserver = menu => {
+    setMenuActive(menu)
+  }
+  const updateFeatures = () => {
+    setFeaturesContext(true)
+  }
+  const updateModules = () => {
+    setModulesContext(true)
+  }
 
   useEffect(() => {
     const url = `${API_HOST}/empresa/?a=${A}&e=${E}&ub=${UB}`
@@ -18,7 +31,13 @@ export function AppProvider({ children }) {
   }, [])
 
   const value = {
-    empresa
+    empresa,
+    menuActive,
+    featuresContext,
+    modulesContext,
+    menuObserver,
+    updateFeatures,
+    updateModules
   }
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>

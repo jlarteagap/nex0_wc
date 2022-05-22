@@ -1,0 +1,57 @@
+.modules{
+    background: #fcfbfb;
+    padding: 6rem 1rem;
+    &__slide{
+        width: 50%;
+        position: relative;
+        &-img{
+            position: relative;
+            z-index: 10;
+        }
+        &-bg{
+            content: ' ';
+            width: 500px;
+            height: 500px;
+            display: block;
+            background: var(--orange);
+            position: absolute;
+            top: calc(50% - 300px);
+            right: 4rem;
+            border-radius: 62% 38% 39% 61% / 71% 53% 47% 29%;
+            z-index: 0;
+        }
+        &::before{
+            top: 2rem;
+            left: 3rem;
+            width: 75px;
+            height: 75px;
+        }
+        &::before, &::after{
+            background: transparent;
+            border: 10px solid var(--orange); 
+            bottom: 2rem;
+            content: ' ';
+            display: block;
+            position: absolute;
+            right: 3rem;
+        }
+        &::after{
+            height: 120px;
+            width: 120px;
+        }
+    }
+    &__content{
+        width: 50%;
+        &-header{
+            &-sub{
+                color: var(--gray);
+            }
+            &-title{
+                color: #000;
+            }
+        }
+        &-text{
+
+        }
+    }
+}
