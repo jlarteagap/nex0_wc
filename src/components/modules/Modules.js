@@ -1,7 +1,40 @@
-import React, { useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import screen1 from '../../assets/pantalla1_nexo.png'
+
+import useData from '../../hooks/useData'
+
 function Modules() {
+  const { menuObserver } = useData()
+
+  const [modulesVisible, setModulesVisible] = useState('')
+  const [entryObserver, setEntryObserver] = useState(false)
+
   const modulesRef = useRef()
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0]
+        setEntryObserver(entry.isIntersecting)
+        if (entryObserver) {
+          setModulesVisible('#modulos')
+        }
+      },
+      {
+        rootMargin: '0px 0px 0px',
+        root: null,
+        threshold: 0.5
+      }
+    )
+    observer.observe(modulesRef.current)
+  }, [entryObserver])
+
+  useEffect(() => {
+    if (entryObserver) {
+      menuObserver(modulesVisible)
+    }
+  }, [entryObserver, modulesVisible])
+
   return (
     <section className="modules" id="modules" ref={modulesRef}>
       <div className="container modules__container is-flex">
