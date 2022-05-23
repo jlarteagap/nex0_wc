@@ -1,0 +1,55 @@
+.principal{
+    padding: 6rem 1rem 0;
+
+    &__content{
+        @include desktop{
+            width: 50%;
+        }
+
+            & h3{
+                color: gray;
+                font-weight: bold;
+                font-size: 2rem;
+            }
+            & h1{
+                color: #000;
+                font-weight: bold;
+                line-height: 1;
+                font-size: 3rem;
+            }
+        
+        & .how__cards{
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+
+            & .how__card{
+                max-width: 150px;
+                text-align: center;
+                & p{
+                    font-weight: bold;
+                } 
+                & img{
+                    width: 100px;
+                }
+            }
+        }
+    }
+    &__steps{
+        gap: 2rem;
+    }
+    &__step{
+        max-width: 150px;
+        &-icons{
+            width: 100px;
+        }
+    }
+    &__img{
+        & img{
+            max-width: 350px;
+        }
+        @include desktop{
+            width: 50%;
+        }
+    }
+}

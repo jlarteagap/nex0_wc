@@ -1,5 +1,12 @@
 import React from 'react'
-import { Caracteristicas, Contact, Footer, Header, Modules } from './components'
+import {
+  Caracteristicas,
+  Contact,
+  Footer,
+  Header,
+  Modules,
+  Principal
+} from './components'
 import { AppProvider } from './context/AppContext'
 
 function App() {
@@ -7,6 +14,7 @@ function App() {
     <div className="App">
       <AppProvider>
         <Header />
+        <Principal />
         <Caracteristicas />
         <Modules />
         <Contact />

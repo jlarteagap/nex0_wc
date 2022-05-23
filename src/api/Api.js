@@ -37,3 +37,14 @@ export async function getGaleria(seccion) {
     console.log(error)
   }
 }
+
+export async function getAbout(category) {
+  try {
+    const url = `${API_HOST}/acercade/?a=${A}&e=${E}&ub=${UB}&c=${category}`
+    const res = await fetch(url)
+    const result = await res.json()
+    return result
+  } catch (error) {
+    console.log(error)
+  }
+}
