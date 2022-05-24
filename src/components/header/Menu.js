@@ -2,41 +2,43 @@ import React from 'react'
 import useData from '../../hooks/useData'
 
 export const Menu = ({ isActive, onClick }) => {
-  const { menuActive } = useData()
+  const { menuActive, modulesContext, featuresContext } = useData()
 
   return (
     <div className={`header__menu navbar-menu ${isActive && 'is-active'}`}>
       <div className="navbar-end">
         <a
           onClick={onClick}
-          href="#"
           className={`header__menu-item navbar-item has-text-weight-bold ${
             menuActive === '#' && 'isActive'
           }`}
+          href="#"
         >
           Home
         </a>
 
-        <a
-          onClick={onClick}
-          className={`header__menu-item navbar-item has-text-weight-bold ${
-            menuActive === '#caracteristicas' && 'isActive'
-          }`}
-          href="#caracteristicas"
-        >
-          Características
-        </a>
-
-        <a
-          onClick={onClick}
-          className={`header__menu-item navbar-item has-text-weight-bold ${
-            menuActive === '#modulos' && 'isActive'
-          }`}
-          href="#modulos"
-        >
-          Módulos
-        </a>
-
+        {featuresContext && (
+          <a
+            onClick={onClick}
+            className={`header__menu-item navbar-item has-text-weight-bold ${
+              menuActive === '#caracteristicas' && 'isActive'
+            }`}
+            href="#caracteristicas"
+          >
+            Características
+          </a>
+        )}
+        {modulesContext && (
+          <a
+            onClick={onClick}
+            className={`header__menu-item navbar-item has-text-weight-bold ${
+              menuActive === '#modulos' && 'isActive'
+            }`}
+            href="#modulos"
+          >
+            Módulos
+          </a>
+        )}
         <a
           onClick={onClick}
           className={`header__menu-item navbar-item has-text-weight-bold ${

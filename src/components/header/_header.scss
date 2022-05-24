@@ -2,9 +2,6 @@
     
     &__menu{
         &-item{
-            & + .isActive{
-                color: var(--orange);
-            }
             &:hover{
                 background: transparent !important;
                 color: var(--orange) !important;
@@ -22,4 +19,8 @@
             }
         }
     }
+}
+
+.isActive{
+    color: var(--orange);
 }

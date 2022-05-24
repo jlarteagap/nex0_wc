@@ -3,7 +3,10 @@ import React, { createContext, useEffect, useState } from 'react'
 const { API_HOST, A, E, UB } = window.CONFIG
 
 export const AppContext = createContext({
-  empresa: undefined
+  empresa: undefined,
+  menuActive: undefined,
+  featuresContext: undefined,
+  modulesContext: undefined
 })
 
 export function AppProvider({ children }) {

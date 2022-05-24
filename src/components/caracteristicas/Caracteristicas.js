@@ -6,7 +6,7 @@ import useData from '../../hooks/useData'
 import { Banner } from './Banner'
 
 function Caracteristicas() {
-  const { menuObserver } = useData()
+  const { menuObserver, updateFeatures } = useData()
 
   const [featuresVisible, setFeaturesVisible] = useState('')
   const [entryObserver, setEntryObserver] = useState(false)
@@ -25,6 +25,7 @@ function Caracteristicas() {
       }
     })()
   }, [])
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
@@ -49,25 +50,34 @@ function Caracteristicas() {
     }
   }, [entryObserver, featuresVisible])
 
+  useEffect(() => {
+    if (features.length > 0) {
+      updateFeatures()
+    }
+  }, [features])
   return (
-    <section className="caracteristicas" id="caracteristicas" ref={featuresRef}>
-      <div className="container pb-5 mb-5 is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-        <div className="caracteristicas__header has-text-centered mb-5">
-          <div className="caracteristicas__header-sub has-text-weight-bold is-size-3">
-            APP
+    <div ref={featuresRef}>
+      {features.length > 0 && (
+        <section className="caracteristicas" id="caracteristicas">
+          <div className="container pb-5 mb-5 is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+            <div className="caracteristicas__header has-text-centered mb-5">
+              <div className="caracteristicas__header-sub has-text-weight-bold is-size-3">
+                APP
+              </div>
+              <div className="caracteristicas__header-title has-text-weight-bold is-size-1 is-size-3-mobile">
+                {features.TITULO}
+              </div>
+            </div>
+            <div className="caracteristicas__content has-text-centered has-text-weight-bold mb-5">
+              <div dangerouslySetInnerHTML={{ __html: features.CONTENIDO }} />
+            </div>
           </div>
-          <div className="caracteristicas__header-title has-text-weight-bold is-size-1 is-size-3-mobile">
-            {features.TITULO}
+          <div className="caracteristicas__banner">
+            <Banner />
           </div>
-        </div>
-        <div className="caracteristicas__content has-text-centered has-text-weight-bold mb-5">
-          <div dangerouslySetInnerHTML={{ __html: features.CONTENIDO }} />
-        </div>
-      </div>
-      <div className="caracteristicas__banner">
-        <Banner />
-      </div>
-    </section>
+        </section>
+      )}
+    </div>
   )
 }
 

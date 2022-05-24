@@ -2,10 +2,15 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import { getAbout } from '../../api/Api'
 import useData from '../../hooks/useData'
+
 import { PrincipalSlide } from './PrincipalSlide'
 
 function Principal() {
   const { empresa } = useData()
+  const { menuObserver } = useData()
+
+  const [homeVisible, setHomeVisible] = useState('')
+  const [entryObserver, setEntryObserver] = useState(false)
   const principalRef = useRef()
   const [home, setHome] = useState({})
 
@@ -19,6 +24,30 @@ function Principal() {
       }
     })()
   }, [])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0]
+        setEntryObserver(entry.isIntersecting)
+        if (entryObserver) {
+          setHomeVisible('#')
+        }
+      },
+      {
+        rootMargin: '0px 0px 0px',
+        root: null,
+        threshold: 0.5
+      }
+    )
+    observer.observe(principalRef.current)
+  }, [entryObserver])
+
+  useEffect(() => {
+    if (entryObserver) {
+      menuObserver(homeVisible)
+    }
+  }, [entryObserver, homeVisible])
 
   return (
     <section className="principal" id="principal" ref={principalRef}>

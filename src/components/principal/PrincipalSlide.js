@@ -27,8 +27,6 @@ export const PrincipalSlide = () => {
       }}
       loop={true}
       modules={[Autoplay]}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={swiper => console.log(swiper)}
     >
       {slide.map(item => {
         return (
