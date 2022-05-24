@@ -2,14 +2,44 @@
     padding: 6rem 1rem 0;
     &__container{
         flex-direction: column;
+        position: relative;
         @include tablet-portrait{
             flex-direction: row;
+        }
+        &-bg{
+            background: linear-gradient(90deg, var(--orange) 21px, transparent 1%) center, linear-gradient(var(--orange) 21px, transparent 1%) center, #ffffff;
+            background-size: 22px 22px;
+            border-radius: 62% 38% 39% 61% / 71% 53% 47% 29%;
+            content: ' ';
+            display: block;
+            height: 300px;
+            position: absolute;
+            right: 0rem;
+            bottom: 10rem;
+            width: 300px;
+            z-index: 0;
+        }
+        &::before{
+            content: '';
+            display: block;
+            width: 80px;
+            height: 80px;
+            background: transparent;
+            border: 5px solid var(--orange);
+            position: absolute;
+            top: 0;
+            right: 0;
+            @include tablet-portrait{
+                top: -40px;
+                left: -50px;
+            }
         }
     }
     &__content{
         width: 100%;
         @include desktop{
             width: 50%;
+            padding-left: 5rem;
         }
 
             & h3{

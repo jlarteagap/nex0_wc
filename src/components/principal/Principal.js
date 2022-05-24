@@ -23,6 +23,7 @@ function Principal() {
   return (
     <section className="principal" id="principal" ref={principalRef}>
       <div className="container principal__container is-flex">
+        <div className="principal__container-bg"></div>
         <div className="principal__content">
           <div dangerouslySetInnerHTML={{ __html: home.CONTENIDO }} />
 
