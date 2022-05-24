@@ -24,7 +24,7 @@ export const PrincipalSlide = () => {
     interval: 3000,
     autoplay: true,
     with: 100,
-    // lazyLoad: 'sequential',
+    lazyLoad: 'sequential',
     perPage: 1,
     perMove: 1,
     pauseOnHover: false,
