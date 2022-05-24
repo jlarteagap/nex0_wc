@@ -37,7 +37,7 @@ export const PrincipalSlide = () => {
       {slide.map(item => {
         return (
           <SplideSlide key={item.ID_ARCHIVO}>
-            <img src={item.URL} alt={item.ID_ARCHIVO} />
+            <img src="image1.jpg" alt="Image 1" />
           </SplideSlide>
         )
       })}

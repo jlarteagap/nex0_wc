@@ -1,7 +1,13 @@
 .principal{
     padding: 6rem 1rem 0;
-
+    &__container{
+        flex-direction: column;
+        @include tablet-portrait{
+            flex-direction: row;
+        }
+    }
     &__content{
+        width: 100%;
         @include desktop{
             width: 50%;
         }
@@ -10,6 +16,8 @@
                 color: gray;
                 font-weight: bold;
                 font-size: 2rem;
+                line-height: 1;
+                margin-bottom: 1.5rem;
             }
             & h1{
                 color: #000;
@@ -20,14 +28,20 @@
         
         & .how__cards{
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             margin: 2rem 0;
-
+            @include desktop{
+                gap: 2rem;
+            }
             & .how__card{
-                max-width: 150px;
+                width: 150px;
                 text-align: center;
                 & p{
                     font-weight: bold;
+                    font-size: .85rem;
+                    @include desktop{
+                        font-size: 1rem;
+                    }
                 } 
                 & img{
                     width: 100px;
@@ -45,11 +59,19 @@
         }
     }
     &__img{
+        width: 100%;
         & img{
             max-width: 350px;
         }
         @include desktop{
             width: 50%;
+        }
+    }
+    &__button{
+        display: flex;
+        justify-content: center;
+        @include tablet-portrait{
+            justify-content: flex-start;
         }
     }
 }
