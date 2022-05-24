@@ -23,6 +23,7 @@ export const PrincipalSlide = () => {
     pagination: false,
     interval: 3000,
     autoplay: true,
+    with: 100,
     // lazyLoad: 'sequential',
     perPage: 1,
     perMove: 1,
@@ -32,11 +33,11 @@ export const PrincipalSlide = () => {
   }
 
   return (
-    <Splide options={options} aria-label="NEXO">
+    <Splide options={options} aria-label="My Favorite Images">
       {slide.map(item => {
         return (
           <SplideSlide key={item.ID_ARCHIVO}>
-            <img src={item.URL} alt={item.COMENTARIO} />
+            <img src={item.URL} alt={item.ID_ARCHIVO} />
           </SplideSlide>
         )
       })}
