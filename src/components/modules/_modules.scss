@@ -89,14 +89,18 @@
         }
         &-header{
             &-sub{
+                line-height: 1;
                 color: var(--gray);
             }
             &-title{
+                line-height: 1;
                 color: #000;
             }
         }
         &-text{
-
+            & li{
+                margin-top: 1rem;
+            }
         }
     }
 }

@@ -2,15 +2,26 @@ import React, { useState, useRef, useEffect } from 'react'
 import screen1 from '../../assets/pantalla1_nexo.png'
 
 import useData from '../../hooks/useData'
+import { getAbout } from '../../api/Api'
 
 function Modules() {
   const { menuObserver } = useData()
 
   const [modulesVisible, setModulesVisible] = useState('')
   const [entryObserver, setEntryObserver] = useState(false)
-
+  const [modules, setModules] = useState([])
   const modulesRef = useRef()
 
+  useEffect(() => {
+    ;(async () => {
+      try {
+        const res = await getAbout('módulos')
+        setModules(res.records[0])
+      } catch (error) {
+        throw new Error(error)
+      }
+    })()
+  }, [])
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
@@ -52,35 +63,7 @@ function Modules() {
             </h2>
           </div>
           <div className="modules__content-text is-size-6-mobile is-size-6-tablet is-size-4-desktop">
-            <p className="pt-4">
-              <strong>BUSCADOR:</strong> Esta sección permite consultar todos
-              los productos ofrecidos por categoria
-            </p>
-            <p className="pt-4">
-              <strong>MIS PEDIDOS:</strong> Esta sección permite visualizar y
-              gestionar todos los pedidos registrados, así como la fecha y
-              detalles de <strong>producto</strong>.
-            </p>
-            <p className="pt-4">
-              <strong>REGISTRA TU NEGOCIO:</strong> Esta sección permite
-              registrar tu negocio para crear tu perfil, se podrá escanear el
-              código Qr del certificado de nit para el llenado rápido de la
-              información del negocio.
-            </p>
-            <p className="pt-4">
-              <strong>FAVORITOS: </strong> Esta sección permite registrar tu
-              negocio para crear tu perfil, se podrá escanear el código Qr del
-              certificado de nit para el llenado rápido de la información del
-              negocio.
-            </p>
-            <p className="pt-4">
-              <strong>CALENDARIO:</strong> Ver el calendario de la semana o mes
-              actual, interfaz de un evento o tarea del calendario.
-            </p>
-            <p className="pt-4">
-              <strong>MENSAJERIA:</strong> Ver la lista de mensajes interfaz de
-              respuesta a un mensaje.
-            </p>
+            <div dangerouslySetInnerHTML={{ __html: modules.CONTENIDO }} />
           </div>
         </div>
       </div>

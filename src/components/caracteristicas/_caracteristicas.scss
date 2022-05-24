@@ -6,9 +6,11 @@
     &__header{
         max-width: 70%;
         &-sub{
+            line-height: 1;
             color: var(--gray);
         }
         &-title{
+            line-height: 1;
             color: #000;
         }
         @include tablet-landscape{
