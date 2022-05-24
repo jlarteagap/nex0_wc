@@ -18,7 +18,7 @@ function Modules() {
         const res = await getAbout('módulos')
         setModules(res.records[0])
       } catch (error) {
-        throw new Error(error)
+        console.log(error)
       }
     })()
   }, [])
@@ -47,14 +47,14 @@ function Modules() {
   }, [entryObserver, modulesVisible])
 
   useEffect(() => {
-    if (modules.length > 0) {
+    if (modules !== '') {
       updateModules()
     }
   }, [modules])
 
   return (
     <div ref={modulesRef}>
-      {modules.length > 0 && (
+      {modules !== '' && (
         <section className="modules" id="modules">
           <div className="container modules__container is-flex">
             <div className="modules__slide">

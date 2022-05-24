@@ -51,13 +51,13 @@ function Caracteristicas() {
   }, [entryObserver, featuresVisible])
 
   useEffect(() => {
-    if (features.length > 0) {
+    if (features !== '') {
       updateFeatures()
     }
   }, [features])
   return (
     <div ref={featuresRef}>
-      {features.length > 0 && (
+      {features !== '' && (
         <section className="caracteristicas" id="caracteristicas">
           <div className="container pb-5 mb-5 is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
             <div className="caracteristicas__header has-text-centered mb-5">
