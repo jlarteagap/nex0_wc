@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
-import screen1 from '../../assets/pantalla1_nexo.png'
 
 import useData from '../../hooks/useData'
 import { getAbout } from '../../api/Api'
+import { SlideModulos } from './SlideModulos'
 
 function Modules() {
   const { menuObserver } = useData()
@@ -51,7 +51,7 @@ function Modules() {
       <div className="container modules__container is-flex">
         <div className="modules__slide">
           <div className="modules__slide-bg"></div>
-          <img src={screen1} alt="Nexo" className="modules__slide-img" />
+          <SlideModulos />
         </div>
         <div className="modules__content">
           <div className="modules__content-header has-text-centered">

@@ -1,17 +1,16 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import { Autoplay } from 'swiper'
 import { getAbout } from '../../api/Api'
 
-export const PrincipalSlide = () => {
+export const SlideModulos = () => {
   const [slide, setSlide] = useState([])
 
   useEffect(() => {
     ;(async () => {
       try {
-        const res = await getAbout('general')
+        const res = await getAbout('módulos')
         setSlide(res.records[0].IMAGENES)
       } catch (error) {
         throw new Error(error)
