@@ -38,7 +38,7 @@ function Principal() {
           </div>
         </div>
         <div className="principal__img">
-          <PrincipalSlide slide={home.IMAGENES} />
+          <PrincipalSlide />
         </div>
       </div>
     </section>

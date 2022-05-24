@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useRef } from 'react'
-import banner from '../../assets/caracteristicas.jpg'
 
+import { getAbout } from '../../api/Api'
 import useData from '../../hooks/useData'
+import { Banner } from './Banner'
 
 function Caracteristicas() {
   const { menuObserver } = useData()
@@ -12,7 +13,18 @@ function Caracteristicas() {
 
   const featuresRef = useRef()
 
-  const [features, setFeatures] = useState([])
+  const [features, setFeatures] = useState({})
+
+  useEffect(() => {
+    ;(async () => {
+      try {
+        const res = await getAbout('características')
+        setFeatures(res.records[0])
+      } catch (error) {
+        throw new Error(error)
+      }
+    })()
+  }, [])
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
@@ -45,25 +57,15 @@ function Caracteristicas() {
             APP
           </div>
           <div className="caracteristicas__header-title has-text-weight-bold is-size-1 is-size-3-mobile">
-            Caracteristicas
+            {features.TITULO}
           </div>
         </div>
         <div className="caracteristicas__content has-text-centered has-text-weight-bold mb-5">
-          <p className="is-size-4 is-size-6-mobile">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ex
-            dolorum aspernatur eligendi assumenda culpa! Amet, necessitatibus
-            minus accusamus, nobis aliquid veniam deleniti voluptates mollitia
-            ullam ut maxime natus laborum!
-          </p>
+          <div dangerouslySetInnerHTML={{ __html: features.CONTENIDO }} />
         </div>
       </div>
       <div className="caracteristicas__banner">
-        <img
-          loading="lazy"
-          src={banner}
-          alt="Caracteristicas"
-          className="caracteristicas__banner-img"
-        />
+        <Banner />
       </div>
     </section>
   )

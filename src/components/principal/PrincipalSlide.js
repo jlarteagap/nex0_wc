@@ -2,14 +2,21 @@
 import React, { useEffect, useState } from 'react'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/react-splide/css'
+import { getAbout } from '../../api/Api'
 
-export const PrincipalSlide = ({ slide }) => {
-  const [imgSlide, setImgSlide] = useState([])
+export const PrincipalSlide = () => {
+  const [slide, setSlide] = useState([])
 
   useEffect(() => {
-    setImgSlide(slide)
-  }, [slide])
-
+    ;(async () => {
+      try {
+        const res = await getAbout('general')
+        setSlide(res.records[0].IMAGENES)
+      } catch (error) {
+        throw new Error(error)
+      }
+    })()
+  }, [])
   const options = {
     arrows: false,
     rewind: true,
@@ -23,12 +30,13 @@ export const PrincipalSlide = ({ slide }) => {
     pauseOnFocus: false,
     type: 'loop'
   }
+
   return (
     <Splide options={options} aria-label="NEXO">
-      {imgSlide.map(img => {
+      {slide.map(item => {
         return (
-          <SplideSlide key={img.ID_ARCHIVO}>
-            <img src={img.URL} alt={img.COMENTARIO} />
+          <SplideSlide key={item.ID_ARCHIVO}>
+            <img src={item.URL} alt={item.COMENTARIO} />
           </SplideSlide>
         )
       })}
