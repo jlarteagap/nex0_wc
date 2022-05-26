@@ -1,5 +1,8 @@
 .footer{
     background: transparent;
+    &__logo{
+        max-width: 100px !important
+    }
     &__section{
 
         @include tablet-portrait{
