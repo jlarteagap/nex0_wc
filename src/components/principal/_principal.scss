@@ -90,6 +90,7 @@
     }
     &__img{
         width: 100%;
+        min-height: 300px;
         & img{
             max-width: 350px;
         }

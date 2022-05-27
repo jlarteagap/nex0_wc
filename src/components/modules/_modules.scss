@@ -12,6 +12,7 @@
     &__slide{
         width: 100%;
         position: relative;
+        min-height: 350px;
         @include tablet-portrait{
             width: 40%;
         }
