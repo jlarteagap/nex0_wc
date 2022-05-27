@@ -2,7 +2,7 @@ import React from 'react'
 import useData from '../../hooks/useData'
 
 export const Menu = ({ isActive, onClick }) => {
-  const { menuActive, modulesContext, featuresContext } = useData()
+  const { menuActive, modulesContext, featuresContext, empresa } = useData()
 
   return (
     <div className={`header__menu navbar-menu ${isActive && 'is-active'}`}>
@@ -51,7 +51,9 @@ export const Menu = ({ isActive, onClick }) => {
         <div className="navbar-item">
           <div className="buttons">
             <div className="button nexo__btn">
-              <strong>Descargar app</strong>
+              <a href={empresa.apps} target="_blank" rel="noreferrer">
+                <strong>Descargar app</strong>
+              </a>
             </div>
           </div>
         </div>

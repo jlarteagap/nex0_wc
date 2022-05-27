@@ -40,6 +40,14 @@
       border: 2px solid white;
     }
   }
+
+  & a{
+    color: white;
+    &:hover{
+      color: var(--orange);
+    }
+  }
+  
 }
 
 
