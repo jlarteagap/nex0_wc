@@ -55,7 +55,7 @@ function Modules() {
   return (
     <div ref={modulesRef}>
       {modules !== '' && (
-        <section className="modules" id="modules">
+        <section className="modules" id="modulos">
           <div className="container modules__container is-flex">
             <div className="modules__slide">
               <div className="modules__slide-bg"></div>
