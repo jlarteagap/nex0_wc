@@ -37,7 +37,7 @@ function Principal() {
       {
         rootMargin: '0px 0px 0px',
         root: null,
-        threshold: 1
+        threshold: 0
       }
     )
     observer.observe(principalRef.current)
@@ -51,7 +51,7 @@ function Principal() {
 
   return (
     <section className="principal" id="principal" ref={principalRef}>
-      <div className="container principal__container is-flex">
+      <div className="container principal__container is-flex is-align-items-center">
         <div className="principal__container-bg"></div>
         <div className="principal__content">
           <div dangerouslySetInnerHTML={{ __html: home.CONTENIDO }} />

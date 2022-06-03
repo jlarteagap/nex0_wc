@@ -1,5 +1,6 @@
 .principal{
     padding: 6rem 1rem 0;
+    overflow: hidden;
 
     &__container{
         flex-direction: column;
@@ -13,12 +14,18 @@
             border-radius: 62% 38% 39% 61% / 71% 53% 47% 29%;
             content: ' ';
             display: block;
-            height: 300px;
+            height: 400px;
             position: absolute;
-            right: 0rem;
-            bottom: 10rem;
-            width: 300px;
+            bottom: 5rem;
+            right: -10rem;
+            width: 400px;
             z-index: 0;
+
+            @include desktop{
+                height: 600px;
+                width: 600px;
+                right: -10rem;
+            }
         }
         &::before{
             content: '';
@@ -26,7 +33,7 @@
             width: 80px;
             height: 80px;
             background: transparent;
-            border: 5px solid var(--orange);
+            border: 10px solid var(--orange);
             position: absolute;
             top: 0;
             right: 0;
@@ -93,7 +100,9 @@
         width: 100%;
         min-height: 400px;
         & img{
-            max-width: 750px;
+            @include desktop{
+                max-width: 100%;
+            }
         }
         @include desktop{
             width: 50%;
