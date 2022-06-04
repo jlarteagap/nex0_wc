@@ -11,12 +11,14 @@ function Principal() {
   const [entryObserver, setEntryObserver] = useState(false)
   const principalRef = useRef()
   const [home, setHome] = useState({})
+  const [imgBanner, setImgBanner] = useState('')
 
   useEffect(() => {
     ;(async () => {
       try {
         const res = await getAbout('general')
         setHome(res.records[0])
+        setImgBanner(res.records[0].IMAGENES[3].URL)
       } catch (error) {
         throw new Error(error)
       }
@@ -68,7 +70,7 @@ function Principal() {
               </div>
             </div>
             <div className="principal__img">
-              <img src={home.IMAGENES[3].URL} alt={home.ID_ARCHIVO} />
+              <img src={imgBanner} alt="NEXO APP" />
             </div>
           </div>
         </section>

@@ -13,7 +13,7 @@ const Header = () => {
       <nav className={`header__navbar navbar is-fixed-top`} role="navigation">
         <div className="container is-widescreen">
           <div className="header__brand navbar-brand">
-            <a className="navbar-item" href={empresa.url}>
+            <a className="header__item navbar-item" href={empresa.url}>
               <img src={empresa.logo} alt={empresa.npmbre} />
             </a>
             <BurgerMenu

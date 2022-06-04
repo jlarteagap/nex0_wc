@@ -2,10 +2,10 @@
     padding: 6rem 1rem 0;
     overflow: hidden;
     background: transparent;
-    background-size: cover;
-    
+
     @include desktop{
         background: url('../../assets/home_bg.png') no-repeat center center;
+        background-size: cover;
     }
 
     &__container{
