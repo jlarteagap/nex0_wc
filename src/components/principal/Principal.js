@@ -3,8 +3,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { getAbout } from '../../api/Api'
 import useData from '../../hooks/useData'
 
-import { PrincipalSlide } from './PrincipalSlide'
-
 function Principal() {
   const { empresa } = useData()
   const { menuObserver } = useData()
@@ -70,7 +68,7 @@ function Principal() {
               </div>
             </div>
             <div className="principal__img">
-              <PrincipalSlide />
+              <img src={home.IMAGENES[3].URL} alt={home.ID_ARCHIVO} />
             </div>
           </div>
         </section>
