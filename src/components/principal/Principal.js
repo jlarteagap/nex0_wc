@@ -50,28 +50,32 @@ function Principal() {
   }, [entryObserver, homeVisible])
 
   return (
-    <section className="principal" id="principal" ref={principalRef}>
-      <div className="container principal__container is-flex is-align-items-center">
-        <div className="principal__container-bg"></div>
-        <div className="principal__content">
-          <div dangerouslySetInnerHTML={{ __html: home.CONTENIDO }} />
+    <div ref={principalRef}>
+      {home !== '' && (
+        <section className="principal" id="principal">
+          <div className="container principal__container is-flex is-align-items-center">
+            <div className="principal__container-bg"></div>
+            <div className="principal__content">
+              <div dangerouslySetInnerHTML={{ __html: home.CONTENIDO }} />
 
-          <div className="principal__button">
-            <a
-              href={empresa.apps}
-              target="_blank"
-              className="button nexo__btn is-size-4"
-              rel="noreferrer"
-            >
-              Descargar la app
-            </a>
+              <div className="principal__button pt-5">
+                <a
+                  href={empresa.apps}
+                  target="_blank"
+                  className="button nexo__btn is-size-4"
+                  rel="noreferrer"
+                >
+                  Descargar la app
+                </a>
+              </div>
+            </div>
+            <div className="principal__img">
+              <PrincipalSlide />
+            </div>
           </div>
-        </div>
-        <div className="principal__img">
-          <PrincipalSlide />
-        </div>
-      </div>
-    </section>
+        </section>
+      )}
+    </div>
   )
 }
 

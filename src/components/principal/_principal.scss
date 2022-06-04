@@ -45,8 +45,11 @@
     }
     &__content{
         width: 100%;
-        @include desktop{
+        @include tablet-portrait{
             width: 50%;
+            padding-left: 2rem;
+        }
+        @include desktop{
             padding-left: 5rem;
         }
 
@@ -104,7 +107,7 @@
                 max-width: 100%;
             }
         }
-        @include desktop{
+        @include tablet-portrait{
             width: 50%;
         }
     }
