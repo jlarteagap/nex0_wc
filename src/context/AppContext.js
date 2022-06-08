@@ -12,14 +12,10 @@ export const AppContext = createContext({
 
 export function AppProvider({ children }) {
   const [empresa, setEmpresa] = useState([])
-  const [menuActive, setMenuActive] = useState('#')
   const [featuresContext, setFeaturesContext] = useState(false)
   const [modulesContext, setModulesContext] = useState(false)
   const [splash, setSplash] = useState(true)
 
-  const menuObserver = menu => {
-    setMenuActive(menu)
-  }
   const updateFeatures = () => {
     setFeaturesContext(true)
   }
@@ -39,11 +35,9 @@ export function AppProvider({ children }) {
 
   const value = {
     empresa,
-    menuActive,
     featuresContext,
     modulesContext,
     splash,
-    menuObserver,
     updateFeatures,
     updateModules
   }

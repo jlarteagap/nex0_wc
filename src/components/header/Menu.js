@@ -2,7 +2,7 @@ import React from 'react'
 import useData from '../../hooks/useData'
 import { Link } from 'react-scroll'
 export const Menu = ({ isActive }) => {
-  const { empresa } = useData()
+  const { empresa, featuresContext, modulesContext } = useData()
 
   return (
     <div className={`header__menu navbar-menu ${isActive && 'is-active'}`}>
@@ -17,26 +17,30 @@ export const Menu = ({ isActive }) => {
         >
           Home
         </Link>
-        <Link
-          className="header__menu-item navbar-item has-text-weight-bold "
-          to="caracteristicas"
-          spy={true}
-          smooth={true}
-          offset={50}
-          duration={500}
-        >
-          Características
-        </Link>
-        <Link
-          className="header__menu-item navbar-item has-text-weight-bold "
-          to="modulos"
-          spy={true}
-          smooth={true}
-          offset={50}
-          duration={500}
-        >
-          Módulos
-        </Link>
+        {featuresContext && (
+          <Link
+            className="header__menu-item navbar-item has-text-weight-bold "
+            to="caracteristicas"
+            spy={true}
+            smooth={true}
+            offset={50}
+            duration={500}
+          >
+            Características
+          </Link>
+        )}
+        {modulesContext && (
+          <Link
+            className="header__menu-item navbar-item has-text-weight-bold "
+            to="modulos"
+            spy={true}
+            smooth={true}
+            offset={50}
+            duration={500}
+          >
+            Módulos
+          </Link>
+        )}
 
         <Link
           className="header__menu-item navbar-item has-text-weight-bold "
