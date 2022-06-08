@@ -70,7 +70,7 @@ function Modules() {
                   MÓDULOS
                 </h2>
               </div>
-              <div className="modules__content-text is-size-6-mobile is-size-6-tablet is-size-4-desktop">
+              <div className="modules__content-text is-size-6-mobile is-size-6-tablet is-size-5-desktop mt-5 pt-5">
                 <div dangerouslySetInnerHTML={{ __html: modules.CONTENIDO }} />
               </div>
             </div>
