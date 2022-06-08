@@ -1,53 +1,53 @@
 import React from 'react'
 import useData from '../../hooks/useData'
-
-export const Menu = ({ isActive, onClick }) => {
-  const { menuActive, modulesContext, featuresContext, empresa } = useData()
+import { Link } from 'react-scroll'
+export const Menu = ({ isActive }) => {
+  const { empresa } = useData()
 
   return (
     <div className={`header__menu navbar-menu ${isActive && 'is-active'}`}>
       <div className="navbar-end">
-        <a
-          onClick={onClick}
-          className={`header__menu-item navbar-item has-text-weight-bold ${
-            menuActive === '#' && 'isActive'
-          }`}
-          href="#"
+        <Link
+          className="header__menu-item navbar-item has-text-weight-bold "
+          to="home"
+          spy={true}
+          smooth={true}
+          duration={500}
+          hashSpy={true}
         >
           Home
-        </a>
+        </Link>
+        <Link
+          className="header__menu-item navbar-item has-text-weight-bold "
+          to="caracteristicas"
+          spy={true}
+          smooth={true}
+          offset={50}
+          duration={500}
+        >
+          Características
+        </Link>
+        <Link
+          className="header__menu-item navbar-item has-text-weight-bold "
+          to="modulos"
+          spy={true}
+          smooth={true}
+          offset={50}
+          duration={500}
+        >
+          Módulos
+        </Link>
 
-        {featuresContext && (
-          <a
-            onClick={onClick}
-            className={`header__menu-item navbar-item has-text-weight-bold ${
-              menuActive === '#caracteristicas' && 'isActive'
-            }`}
-            href="#caracteristicas"
-          >
-            Características
-          </a>
-        )}
-        {modulesContext && (
-          <a
-            onClick={onClick}
-            className={`header__menu-item navbar-item has-text-weight-bold ${
-              menuActive === '#modulos' && 'isActive'
-            }`}
-            href="#modulos"
-          >
-            Módulos
-          </a>
-        )}
-        <a
-          onClick={onClick}
-          className={`header__menu-item navbar-item has-text-weight-bold ${
-            menuActive === '#contacto' && 'isActive'
-          }`}
-          href="#contacto"
+        <Link
+          className="header__menu-item navbar-item has-text-weight-bold "
+          to="contacto"
+          spy={true}
+          smooth={true}
+          offset={50}
+          duration={500}
         >
           Contacto
-        </a>
+        </Link>
         <div className="navbar-item">
           <div className="buttons">
             <div className="button nexo__btn">

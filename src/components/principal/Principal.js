@@ -1,15 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { getAbout } from '../../api/Api'
 import useData from '../../hooks/useData'
 
 function Principal() {
   const { empresa } = useData()
-  const { menuObserver } = useData()
 
-  const [homeVisible, setHomeVisible] = useState('')
-  const [entryObserver, setEntryObserver] = useState(false)
-  const principalRef = useRef()
   const [home, setHome] = useState({})
   const [imgBanner, setImgBanner] = useState('')
 
@@ -25,34 +21,10 @@ function Principal() {
     })()
   }, [])
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        const entry = entries[0]
-        setEntryObserver(entry.isIntersecting)
-        if (entryObserver) {
-          setHomeVisible('#')
-        }
-      },
-      {
-        rootMargin: '0px 0px 0px',
-        root: null,
-        threshold: 0
-      }
-    )
-    observer.observe(principalRef.current)
-  }, [entryObserver])
-
-  useEffect(() => {
-    if (entryObserver) {
-      menuObserver(homeVisible)
-    }
-  }, [entryObserver, homeVisible])
-
   return (
-    <div ref={principalRef}>
+    <div>
       {home !== '' && (
-        <section className="principal" id="principal">
+        <section className="principal" id="home">
           <div className="container principal__container is-flex is-align-items-center">
             <div className="principal__container-bg"></div>
             <div className="principal__content">

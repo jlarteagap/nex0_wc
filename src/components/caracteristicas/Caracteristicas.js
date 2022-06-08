@@ -1,17 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { getAbout } from '../../api/Api'
 import useData from '../../hooks/useData'
 import { Banner } from './Banner'
 
 function Caracteristicas() {
-  const { menuObserver, updateFeatures } = useData()
-
-  const [featuresVisible, setFeaturesVisible] = useState('')
-  const [entryObserver, setEntryObserver] = useState(false)
-
-  const featuresRef = useRef()
+  const { updateFeatures } = useData()
 
   const [features, setFeatures] = useState({})
 
@@ -27,36 +22,12 @@ function Caracteristicas() {
   }, [])
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        const entry = entries[0]
-        setEntryObserver(entry.isIntersecting)
-        if (entryObserver) {
-          setFeaturesVisible('#caracteristicas')
-        }
-      },
-      {
-        rootMargin: '0px 0px 0px',
-        root: null,
-        threshold: 0
-      }
-    )
-    observer.observe(featuresRef.current)
-  }, [entryObserver])
-
-  useEffect(() => {
-    if (entryObserver) {
-      menuObserver(featuresVisible)
-    }
-  }, [entryObserver, featuresVisible])
-
-  useEffect(() => {
     if (features !== '') {
       updateFeatures()
     }
   }, [features])
   return (
-    <div ref={featuresRef}>
+    <div>
       {features !== '' && (
         <section className="caracteristicas" id="caracteristicas">
           <div className="container pb-5 mb-5 is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
