@@ -1,7 +1,7 @@
 import React from 'react'
 import useData from '../../hooks/useData'
 import { Link } from 'react-scroll'
-export const Menu = ({ isActive }) => {
+export const Menu = ({ isActive, onClick }) => {
   const { empresa, featuresContext, modulesContext } = useData()
 
   return (
@@ -13,7 +13,7 @@ export const Menu = ({ isActive }) => {
           spy={true}
           smooth={true}
           duration={500}
-          hashSpy={true}
+          onClick={onClick}
         >
           Home
         </Link>
@@ -23,8 +23,9 @@ export const Menu = ({ isActive }) => {
             to="caracteristicas"
             spy={true}
             smooth={true}
-            offset={50}
+            offset={-150}
             duration={500}
+            onClick={onClick}
           >
             Características
           </Link>
@@ -35,8 +36,9 @@ export const Menu = ({ isActive }) => {
             to="modulos"
             spy={true}
             smooth={true}
-            offset={50}
+            offset={-150}
             duration={500}
+            onClick={onClick}
           >
             Módulos
           </Link>
@@ -47,8 +49,9 @@ export const Menu = ({ isActive }) => {
           to="contacto"
           spy={true}
           smooth={true}
-          offset={50}
+          offset={-150}
           duration={500}
+          onClick={onClick}
         >
           Contacto
         </Link>
