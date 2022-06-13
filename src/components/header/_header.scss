@@ -2,6 +2,10 @@
     
     &__menu{
         &-item{
+            font-size: 1rem;
+            @include desktop{
+                font-size: 1.5rem;
+            }
             &:hover{
                 background: transparent !important;
                 color: var(--orange) !important;
@@ -22,7 +26,7 @@
 
     &__item{
         & img{
-            width: 100px;
+            width: 180px;
             height: auto;
             max-height: initial;
         }
