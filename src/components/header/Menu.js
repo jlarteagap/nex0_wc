@@ -14,6 +14,7 @@ export const Menu = ({ isActive, onClick }) => {
           smooth={true}
           duration={500}
           onClick={onClick}
+          isDynamic={true}
         >
           Home
         </Link>
@@ -23,9 +24,10 @@ export const Menu = ({ isActive, onClick }) => {
             to="caracteristicas"
             spy={true}
             smooth={true}
-            offset={-150}
+            offset={0}
             duration={500}
             onClick={onClick}
+            isDynamic={true}
           >
             Características
           </Link>
@@ -36,9 +38,10 @@ export const Menu = ({ isActive, onClick }) => {
             to="modulos"
             spy={true}
             smooth={true}
-            offset={-150}
+            offset={0}
             duration={500}
             onClick={onClick}
+            isDynamic={true}
           >
             Módulos
           </Link>
@@ -49,9 +52,10 @@ export const Menu = ({ isActive, onClick }) => {
           to="contacto"
           spy={true}
           smooth={true}
-          offset={-150}
+          offset={0}
           duration={500}
           onClick={onClick}
+          isDynamic={true}
         >
           Contacto
         </Link>

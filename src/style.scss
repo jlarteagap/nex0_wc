@@ -18,8 +18,11 @@
 @mixin big-desktop {
   @media screen and (min-width: 1800px) { @content; }
 }
+html{
+  scroll-behavior: smooth
+}
 body{
-  scroll-behavior: smooth;
+  overflow-x: auto !important;
 }
 .nexo__btn{
   background: var(--orange);
