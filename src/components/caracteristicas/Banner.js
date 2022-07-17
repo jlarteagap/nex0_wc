@@ -10,7 +10,7 @@ export const Banner = () => {
         const res = await getAbout('características')
         setBanner(res.records[0].IMAGENES[0])
       } catch (error) {
-        throw new Error(error)
+        console.log(error)
       }
     })()
   }, [])

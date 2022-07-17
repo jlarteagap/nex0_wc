@@ -16,7 +16,7 @@ function Principal() {
         setHome(res.records[0])
         setImgBanner(res.records[0].IMAGENES[3].URL)
       } catch (error) {
-        throw new Error(error)
+        console.log(error)
       }
     })()
   }, [])

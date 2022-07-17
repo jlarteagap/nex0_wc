@@ -6,9 +6,9 @@ import {
   Header,
   Modules,
   Principal
-} from './components'
-import { SplashScreen } from './components/utils/SplashScreen'
-import { AppProvider } from './context/AppContext'
+} from '../components'
+import { SplashScreen } from '../components/utils/SplashScreen'
+import { AppProvider } from '../context/AppContext'
 
 function App() {
   return (

@@ -13,7 +13,7 @@ export const SlideModulos = () => {
         const res = await getAbout('módulos')
         setSlide(res.records[0].IMAGENES)
       } catch (error) {
-        throw new Error(error)
+        console.log(error)
       }
     })()
   }, [])
