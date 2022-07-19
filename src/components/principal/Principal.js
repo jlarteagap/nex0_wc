@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import useData from '../../hooks/useData'
-// const { API_HOST, A, E, UB } = typeof window !== 'undefined' && window.CONFIG
 
 function Principal({ home, imageBanner }) {
   const { empresa } = useData()

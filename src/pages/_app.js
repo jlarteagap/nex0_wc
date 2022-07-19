@@ -1,16 +1,10 @@
 import React from 'react'
 import 'bulma/css/bulma.min.css'
 import '../style.scss'
-import App from 'next/app'
+// import App from 'next/app'
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
-}
-
-MyApp.getInitialProps = async appContext => {
-  const appProps = await App.getInitialProps(appContext)
-
-  return { ...appProps }
 }
 
 // Only uncomment this method if you have blocking data requirements for

@@ -14,16 +14,9 @@ export async function getServices(service) {
 }
 
 export async function getData(section) {
-  try {
-    const url = `${API_HOST}/${section}/?a=${A}&e=${E}&ub=${UB}`
-
-    const res = await fetch(url)
-    const result = await res.json()
-
-    return result
-  } catch (error) {
-    throw new Error(error)
-  }
+  console.log(API_HOST)
+  const url = `${API_HOST}/${section}/?a=${A}&e=${E}&ub=${UB}`
+  return url
 }
 
 export async function getGaleria(seccion) {
