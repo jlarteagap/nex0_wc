@@ -16,7 +16,7 @@ function Caracteristicas() {
         const res = await getAbout('características')
         setFeatures(res.records[0])
       } catch (error) {
-        throw new Error(error)
+        console.log(error)
       }
     })()
   }, [])

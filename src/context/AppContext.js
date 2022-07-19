@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 
-const { API_HOST, A, E, UB } = window.CONFIG
+const { API_HOST, A, E, UB } = typeof window !== 'undefined' && window.CONFIG
 
 export const AppContext = createContext({
   empresa: undefined,
@@ -25,6 +25,7 @@ export function AppProvider({ children }) {
   setTimeout(() => {
     setSplash(false) // *** If you want to clear the error message as well
   }, 3000)
+
   useEffect(() => {
     const url = `${API_HOST}/empresa/?a=${A}&e=${E}&ub=${UB}`
 

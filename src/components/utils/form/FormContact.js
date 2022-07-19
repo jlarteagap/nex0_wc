@@ -5,7 +5,7 @@ import { InputField, TextAreaField } from './Inputfield'
 import { Loading } from '../load/Loading'
 
 export const FormContact = ({ toggleModal }) => {
-  const { API_HOST, A, E, UB } = window.CONFIG
+  const { API_HOST, A, E, UB } = typeof window !== 'undefined' && window.CONFIG
 
   const [status, setStatus] = useState(false)
   const [loading, setLoading] = useState(false)
