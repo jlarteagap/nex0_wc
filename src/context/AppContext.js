@@ -1,9 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 
-const API_HOST = process.env.API_HOST
-const A = process.env.A
-const E = process.env.E
-const UB = process.env.UB
+const { API_HOST, A, E, UB } = typeof window !== 'undefined' && window.CONFIG
 
 export const AppContext = createContext({
   empresa: undefined,
@@ -31,7 +28,7 @@ export function AppProvider({ children }) {
 
   useEffect(() => {
     const url = `${API_HOST}/empresa/?a=${A}&e=${E}&ub=${UB}`
-    console.log(url)
+
     fetch(url)
       .then(res => res.json())
       .then(data => setEmpresa(data.records))

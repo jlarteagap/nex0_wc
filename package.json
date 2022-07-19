@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bulma": "^0.9.4",
     "formik": "^2.2.9",
+    "isomorphic-unfetch": "^3.1.0",
     "next": "^12.2.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",

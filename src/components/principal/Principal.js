@@ -1,52 +1,35 @@
-import React, { useEffect, useState } from 'react'
-
-import { getAbout } from '../../api/Api'
+import React from 'react'
+import Image from 'next/image'
 import useData from '../../hooks/useData'
+// const { API_HOST, A, E, UB } = typeof window !== 'undefined' && window.CONFIG
 
-function Principal() {
+function Principal({ home, imageBanner }) {
   const { empresa } = useData()
-
-  const [home, setHome] = useState({})
-  const [imgBanner, setImgBanner] = useState('')
-
-  useEffect(() => {
-    ;(async () => {
-      try {
-        const res = await getAbout('general')
-        setHome(res.records[0])
-        setImgBanner(res.records[0].IMAGENES[3].URL)
-      } catch (error) {
-        console.log(error)
-      }
-    })()
-  }, [])
 
   return (
     <div>
-      {home !== '' && (
-        <section className="principal" id="home">
-          <div className="container principal__container is-flex is-align-items-center">
-            <div className="principal__container-bg"></div>
-            <div className="principal__content">
-              <div dangerouslySetInnerHTML={{ __html: home.CONTENIDO }} />
+      <section className="principal" id="home">
+        <div className="container principal__container is-flex is-align-items-center">
+          <div className="principal__container-bg"></div>
+          <div className="principal__content">
+            <div dangerouslySetInnerHTML={{ __html: home.CONTENIDO }} />
 
-              <div className="principal__button pt-5">
-                <a
-                  href={empresa.apps}
-                  target="_blank"
-                  className="button nexo__btn is-size-4"
-                  rel="noreferrer"
-                >
-                  Descargar la app
-                </a>
-              </div>
-            </div>
-            <div className="principal__img">
-              <img src={imgBanner} alt="NEXO APP" />
+            <div className="principal__button pt-5">
+              <a
+                href={empresa.apps}
+                target="_blank"
+                className="button nexo__btn is-size-4"
+                rel="noreferrer"
+              >
+                Descargar la app
+              </a>
             </div>
           </div>
-        </section>
-      )}
+          <div className="principal__img">
+            <Image src={imageBanner} alt="NEXO APP" width={400} height={600} />
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

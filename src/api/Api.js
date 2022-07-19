@@ -1,7 +1,4 @@
-const API_HOST = process.env.API_HOST
-const A = process.env.API_HOST.A
-const E = process.env.API_HOST.E
-const UB = process.env.API_HOST.UB
+const { API_HOST, A, E, UB } = typeof window !== 'undefined' && window.CONFIG
 
 export async function getServices(service) {
   try {
